@@ -50,10 +50,3 @@ SAPA (Sistem Aduan Publik Terpadu) adalah platform pelaporan publik berbasis Lar
 
 MySQL 8.x wajib karena aplikasi memakai SRID, spatial index, `ST_Contains`, dan `ST_Distance_Sphere`.
 
-## Perbaikan otomatis pada proyek lama
-
-Letakkan `perbaikan_full_gis_media.sh` di folder root proyek Laravel yang berisi `artisan` dan `composer.json`, lalu jalankan:
-
-```bash
-chmod +x perbaikan_full_gis_media.sh
-bash perbaikan_full_gis_media.sh
