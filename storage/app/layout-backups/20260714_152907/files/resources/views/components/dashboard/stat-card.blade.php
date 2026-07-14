@@ -1,0 +1,2 @@
+@props(['label','value','hint'=>null,'icon'=>'•'])
+<article {{ $attributes->class('panel stat-card') }}><div class="flex items-start justify-between"><div><p class="text-sm font-semibold text-slate-500">{{ $label }}</p><p class="mt-2 text-3xl font-black tracking-tight">{{ $value }}</p>@if($hint)<p class="mt-1 text-xs text-slate-400">{{ $hint }}</p>@endif</div><span class="grid h-11 w-11 place-items-center rounded-2xl bg-blue-50 text-xl text-blue-700 dark:bg-blue-950/50 dark:text-blue-300">{{ $icon }}</span></div></article>

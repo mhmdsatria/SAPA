@@ -1,0 +1,299 @@
+@config "../../tailwind.config.js";
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@source "../views/**/*.blade.php";
+@source "../../app/Livewire/**/*.php";
+
+:root {
+    color-scheme: light;
+}
+
+html.dark {
+    color-scheme: dark;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: #f8fafc;
+}
+
+html.dark {
+    background: #020617;
+}
+
+body {
+    @apply min-h-screen bg-slate-50 text-slate-900 antialiased transition-colors duration-200 dark:bg-slate-950 dark:text-slate-100;
+}
+
+[x-cloak] {
+    display: none !important;
+}
+
+@layer components {
+    .panel {
+        @apply rounded-2xl border border-slate-200/80 bg-white shadow-sm transition-colors dark:border-slate-800 dark:bg-slate-900;
+    }
+
+    .panel-soft {
+        @apply rounded-2xl border border-slate-200/70 bg-slate-50/80 dark:border-slate-800 dark:bg-slate-900/60;
+    }
+
+    .page-stack {
+        @apply space-y-5 sm:space-y-6 lg:space-y-7;
+    }
+
+    .page-heading {
+        @apply text-2xl font-black tracking-tight text-slate-950 dark:text-white sm:text-3xl;
+    }
+
+    .page-kicker {
+        @apply text-[11px] font-black uppercase tracking-[0.18em] text-blue-600 dark:text-blue-400;
+    }
+
+    .page-description {
+        @apply mt-1.5 max-w-3xl text-sm leading-6 text-slate-500 dark:text-slate-400;
+    }
+
+    .field-label {
+        @apply mb-1.5 block text-xs font-bold text-slate-700 dark:text-slate-200 sm:text-sm;
+    }
+
+    .field-control {
+        @apply w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 disabled:cursor-not-allowed disabled:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:disabled:bg-slate-800;
+    }
+
+    .public-header {
+        @apply sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/90;
+    }
+
+    .public-shell {
+        @apply mx-auto min-h-[calc(100vh-136px)] max-w-[1440px] px-3 py-5 sm:px-5 sm:py-7 lg:px-8;
+    }
+
+    .nav-link {
+        @apply inline-flex items-center rounded-xl px-3 py-2 text-sm font-bold text-slate-600 transition hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white;
+    }
+
+    .nav-link-active {
+        @apply bg-blue-50 text-blue-700 dark:bg-blue-950/50 dark:text-blue-300;
+    }
+
+    .icon-button {
+        @apply grid h-9 w-9 shrink-0 place-items-center rounded-xl border border-transparent text-slate-600 transition hover:border-slate-200 hover:bg-slate-100 dark:text-slate-300 dark:hover:border-slate-700 dark:hover:bg-slate-800 sm:h-10 sm:w-10;
+    }
+
+    .portal-shell {
+        @apply min-h-screen lg:grid lg:grid-cols-[272px_minmax(0,1fr)];
+    }
+
+    .portal-overlay {
+        @apply fixed inset-0 z-40 bg-slate-950/55 backdrop-blur-sm lg:hidden;
+    }
+
+    .portal-sidebar {
+        @apply fixed inset-y-0 left-0 z-50 flex w-[272px] flex-col border-r border-slate-200 bg-white px-3 py-4 text-slate-900 shadow-2xl transition-transform duration-300 dark:border-slate-800 dark:bg-slate-950 dark:text-white lg:sticky lg:top-0 lg:h-screen lg:translate-x-0 lg:shadow-none;
+    }
+
+    .portal-brand {
+        @apply flex items-center gap-3 rounded-2xl px-2 py-2 transition hover:bg-slate-100 dark:hover:bg-white/5;
+    }
+
+    .portal-brand-icon {
+        @apply h-10 w-10 rounded-xl shadow-sm ring-1 ring-slate-200 dark:ring-slate-800;
+    }
+
+    .portal-nav-label {
+        @apply mb-2 mt-5 px-3 text-[10px] font-black uppercase tracking-[0.18em] text-slate-400 dark:text-slate-500;
+    }
+
+    .portal-user-card {
+        @apply mt-auto rounded-2xl border border-slate-200 bg-slate-50 p-3 dark:border-slate-800 dark:bg-slate-900;
+    }
+
+    .portal-content {
+        @apply min-w-0 lg:col-start-2;
+    }
+
+    .portal-topbar {
+        @apply sticky top-0 z-30 flex min-h-16 items-center gap-3 border-b border-slate-200/80 bg-white/90 px-3 py-2.5 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/90 sm:px-5 lg:px-7;
+    }
+
+    .portal-main {
+        @apply min-w-0 p-3 pb-8 sm:p-5 lg:p-7;
+    }
+
+    .portal-main-inner {
+        @apply mx-auto w-full max-w-[1560px];
+    }
+
+    .sidebar-link {
+        @apply flex items-center gap-3 rounded-xl px-2.5 py-2 text-sm font-bold text-slate-600 transition duration-200 hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-white/5 dark:hover:text-white;
+    }
+
+    .sidebar-link-active {
+        @apply bg-blue-600 text-white shadow-md shadow-blue-600/20 hover:bg-blue-600 hover:text-white dark:bg-blue-600 dark:text-white;
+    }
+
+    .sidebar-icon {
+        @apply grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-slate-100 text-sm text-slate-600 transition dark:bg-slate-900 dark:text-slate-300;
+    }
+
+    .sidebar-link-active .sidebar-icon {
+        @apply bg-white/15 text-white;
+    }
+
+    .stat-grid {
+        @apply grid grid-cols-2 gap-2.5 sm:gap-4 lg:grid-cols-4;
+    }
+
+    .stat-card {
+        @apply min-w-0 p-3 transition duration-300 hover:-translate-y-0.5 hover:shadow-md sm:p-4 lg:p-5;
+    }
+
+    .content-grid {
+        @apply grid grid-cols-2 gap-2.5 sm:gap-4 md:grid-cols-3 xl:grid-cols-4;
+    }
+
+    .gallery-grid {
+        @apply grid grid-cols-2 gap-2.5 sm:grid-cols-3 sm:gap-4 lg:grid-cols-4 2xl:grid-cols-5;
+    }
+
+    .compact-card-title {
+        @apply line-clamp-2 text-sm font-black leading-5 text-slate-950 dark:text-white sm:text-base;
+    }
+
+    .compact-card-meta {
+        @apply text-[10px] font-semibold leading-4 text-slate-500 dark:text-slate-400 sm:text-xs;
+    }
+
+    .media-tile {
+        @apply relative block overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-800 sm:rounded-2xl;
+    }
+
+    .media-type-chip {
+        @apply absolute left-2 top-2 z-10 rounded-full bg-slate-950/70 px-2 py-1 text-[9px] font-black uppercase tracking-wide text-white backdrop-blur sm:left-3 sm:top-3 sm:text-[10px];
+    }
+
+    .mobile-card-list {
+        @apply grid grid-cols-2 gap-2.5 sm:gap-4 lg:hidden;
+    }
+
+    .desktop-table {
+        @apply hidden overflow-x-auto lg:block;
+    }
+
+    .animate-enter {
+        animation: enter 0.35s ease both;
+    }
+}
+
+@keyframes enter {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.leaflet-container {
+    z-index: 1;
+    min-height: 300px;
+    width: 100%;
+    border-radius: 1rem;
+    font-family: inherit;
+    background: #e2e8f0;
+}
+
+.dark .leaflet-container {
+    background: #0f172a;
+}
+
+.dark .leaflet-tile-pane {
+    filter: saturate(0.82) brightness(0.76) contrast(1.08);
+}
+
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+    background: white;
+    color: #0f172a;
+}
+
+.dark .leaflet-popup-content-wrapper,
+.dark .leaflet-popup-tip {
+    background: #0f172a;
+    color: #f8fafc;
+}
+
+.gis-marker-wrap {
+    border: 0;
+    background: transparent;
+}
+
+.gis-pin {
+    position: relative;
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    transform: rotate(-45deg);
+    border: 3px solid white;
+    border-radius: 50% 50% 50% 0;
+    background: var(--pin);
+    box-shadow: 0 7px 18px rgb(15 23 42 / 28%);
+}
+
+.gis-pin > span {
+    width: 8px;
+    height: 8px;
+    border-radius: 9999px;
+    background: white;
+}
+
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
+    background: rgb(37 99 235 / 20%);
+}
+
+.marker-cluster-small div,
+.marker-cluster-medium div,
+.marker-cluster-large div {
+    background: #2563eb;
+    color: white;
+    font-weight: 800;
+}
+
+.map-popup {
+    min-width: 220px;
+}
+
+.map-popup > div {
+    margin-top: 5px;
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.map-popup p {
+    margin: 8px 0;
+    font-size: 13px;
+}
+
+.map-popup a {
+    color: #2563eb;
+    font-weight: 800;
+}
+
+@media (max-width: 639px) {
+    .leaflet-container {
+        min-height: 270px;
+        border-radius: 0.875rem;
+    }
+
+    .portal-main .panel {
+        border-radius: 1rem;
+    }
+}

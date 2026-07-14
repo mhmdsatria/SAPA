@@ -1,0 +1,31 @@
+@config "../../tailwind.config.js";
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+@source "../views/**/*.blade.php";
+@source "../../app/Livewire/**/*.php";
+
+:root{color-scheme:light}html.dark{color-scheme:dark}html{scroll-behavior:smooth}body{@apply bg-slate-50 text-slate-900 antialiased dark:bg-slate-950 dark:text-slate-100}[x-cloak]{display:none!important}
+@layer components{
+.panel{@apply rounded-3xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-900}
+.field-label{@apply mb-1.5 block text-sm font-semibold text-slate-700 dark:text-slate-200}
+.field-control{@apply w-full rounded-2xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-500/10 disabled:cursor-not-allowed disabled:bg-slate-100 dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:disabled:bg-slate-800}
+.public-header{@apply sticky top-0 z-40 border-b border-slate-200/70 bg-white/85 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/85}
+.nav-link{@apply rounded-xl px-3 py-2 text-sm font-semibold text-slate-600 transition hover:bg-slate-100 hover:text-slate-950 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white}
+.nav-link-active{@apply bg-blue-50 text-blue-700 dark:bg-blue-950/50 dark:text-blue-300}
+.icon-button{@apply grid h-10 w-10 place-items-center rounded-xl text-slate-600 transition hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800}
+.portal-shell{@apply min-h-screen lg:grid lg:grid-cols-[280px_1fr]}
+.portal-sidebar{@apply fixed inset-y-0 left-0 z-50 flex w-[280px] flex-col border-r border-slate-800 bg-slate-950 px-4 py-5 text-white transition-transform duration-300 lg:sticky lg:top-0 lg:h-screen}
+.portal-brand{@apply flex items-center gap-3 rounded-2xl px-2 py-2}
+.portal-content{@apply min-w-0 lg:col-start-2}
+.portal-topbar{@apply sticky top-0 z-30 flex items-center gap-3 border-b border-slate-200/70 bg-white/90 px-4 py-3 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/90 sm:px-6 lg:px-8}
+.portal-main{@apply p-4 sm:p-6 lg:p-8}
+.sidebar-link{@apply flex items-center gap-3 rounded-2xl px-3 py-2.5 text-sm font-semibold text-slate-300 transition duration-200 hover:translate-x-1 hover:bg-white/5 hover:text-white}
+.sidebar-link-active{@apply bg-blue-600 text-white shadow-lg shadow-blue-950/30}
+.stat-card{@apply p-5 transition duration-300 hover:-translate-y-1 hover:shadow-lg}
+.media-tile{@apply relative block overflow-hidden rounded-2xl bg-slate-100 dark:bg-slate-800}
+.media-type-chip{@apply absolute left-3 top-3 rounded-full bg-slate-950/70 px-2.5 py-1 text-[11px] font-bold text-white backdrop-blur}
+.animate-enter{animation:enter .42s ease both}
+}
+@keyframes enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.leaflet-container{z-index:1;min-height:320px;font-family:inherit;background:#e2e8f0}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:white;color:#0f172a}.dark .leaflet-popup-content-wrapper,.dark .leaflet-popup-tip{background:#0f172a;color:#f8fafc}
+.gis-marker-wrap{background:transparent;border:0}.gis-pin{position:relative;display:grid;width:30px;height:30px;place-items:center;border:3px solid white;border-radius:50% 50% 50% 0;background:var(--pin);box-shadow:0 7px 18px rgba(15,23,42,.28);transform:rotate(-45deg)}.gis-pin>span{width:8px;height:8px;border-radius:9999px;background:white}.marker-cluster-small,.marker-cluster-medium,.marker-cluster-large{background:rgba(37,99,235,.2)}.marker-cluster-small div,.marker-cluster-medium div,.marker-cluster-large div{background:#2563eb;color:white;font-weight:800}.map-popup{min-width:220px}.map-popup>div{margin-top:5px;font-size:12px;opacity:.7}.map-popup p{margin:8px 0;font-size:13px}.map-popup a{font-weight:800;color:#2563eb}

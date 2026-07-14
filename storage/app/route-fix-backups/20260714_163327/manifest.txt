@@ -1,0 +1,12 @@
+EXISTED	app/Livewire/Public/ComplaintEditor.php
+EXISTED	app/Services/GisService.php
+EXISTED	resources/js/gis-map.js
+ABSENT	resources/views/components/map/directions-link.blade.php
+EXISTED	resources/views/livewire/public/home-page.blade.php
+EXISTED	resources/views/livewire/public/profile-dashboard.blade.php
+EXISTED	resources/views/livewire/public/complaint-detail.blade.php
+EXISTED	resources/views/livewire/public/complaint-editor.blade.php
+EXISTED	resources/views/livewire/public/complaint-gallery.blade.php
+EXISTED	resources/views/livewire/admin/incoming-complaints.blade.php
+EXISTED	resources/views/livewire/admin/complaint-archive.blade.php
+EXISTED	resources/views/livewire/admin/dashboard.blade.php
